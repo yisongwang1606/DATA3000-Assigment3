@@ -42,8 +42,8 @@ public class BinarySearchTree {
      * @param value variable value
      */
     public void insert(String key, int value) {
-        validateKey(key);
-        root = insertRecursive(root, key, value);
+        String normalizedKey = validateAndNormalizeKey(key);
+        root = insertRecursive(root, normalizedKey, value);
     }
 
     /**
@@ -53,8 +53,8 @@ public class BinarySearchTree {
      * @return value if found, otherwise null
      */
     public Integer search(String key) {
-        validateKey(key);
-        Node foundNode = searchRecursive(root, key);
+        String normalizedKey = validateAndNormalizeKey(key);
+        Node foundNode = searchRecursive(root, normalizedKey);
         if (foundNode == null) {
             return null;
         }
@@ -67,8 +67,8 @@ public class BinarySearchTree {
      * @param key variable name to delete
      */
     public void delete(String key) {
-        validateKey(key);
-        root = deleteRecursive(root, key);
+        String normalizedKey = validateAndNormalizeKey(key);
+        root = deleteRecursive(root, normalizedKey);
     }
 
     /**
@@ -198,7 +198,8 @@ public class BinarySearchTree {
     }
 
     /**
-     * This method appends a visual tree line for each node using preorder traversal.
+     * This method appends a visual tree line using right-root-left order.
+     * This matches the sample run style where larger keys appear above the root.
      *
      * @param current current node
      * @param builder output builder
@@ -208,15 +209,14 @@ public class BinarySearchTree {
         if (current == null) {
             return;
         }
+        buildDisplayString(current.right, builder, depth + 1);
         appendIndentation(builder, depth);
         builder.append("||==> ");
         builder.append(current.key);
         builder.append(":");
         builder.append(current.value);
         builder.append(System.lineSeparator());
-        // Preorder traversal keeps parent shown before its children.
         buildDisplayString(current.left, builder, depth + 1);
-        buildDisplayString(current.right, builder, depth + 1);
     }
 
     /**
@@ -232,11 +232,12 @@ public class BinarySearchTree {
     }
 
     /**
-     * This method validates that a variable key is non-null and non-blank.
+     * This method validates that a variable key is non-null/non-blank and normalizes spaces.
      *
      * @param key key to validate
+     * @return trimmed key
      */
-    private void validateKey(String key) {
+    private String validateAndNormalizeKey(String key) {
         if (key == null) {
             throw new IllegalArgumentException("Variable name cannot be null.");
         }
@@ -244,5 +245,6 @@ public class BinarySearchTree {
         if (trimmedKey.isEmpty()) {
             throw new IllegalArgumentException("Variable name cannot be empty.");
         }
+        return trimmedKey;
     }
 }

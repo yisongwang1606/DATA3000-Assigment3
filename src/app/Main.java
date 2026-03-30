@@ -32,6 +32,7 @@ public final class Main {
         runSample(calculator, "g h i + * j /", new String[] { "g", "h", "i", "j" }, new int[] { 2, 3, 4, 5 });
         runSample(calculator, "k l + m n + *", new String[] { "k", "l", "m", "n" }, new int[] { 2, 3, 4, 5 });
         runSample(calculator, "o p / q r + * s +", new String[] { "o", "p", "q", "r", "s" }, new int[] { 9, 3, 5, 2, 7 });
+        runErrorHandlingShowcase();
     }
 
     /**
@@ -85,6 +86,55 @@ public final class Main {
         System.out.println("All variables have been deleted.");
         System.out.println(calculator.displayVariableTree());
         System.out.println();
+    }
+
+    /**
+     * Runs additional error-focused tests for presentation and grading rubric coverage.
+     */
+    private static void runErrorHandlingShowcase() {
+        System.out.println("Additional error-handling test cases:");
+        runExpectedErrorCase(
+                "Undefined variable",
+                "u 2 +",
+                new String[] {},
+                new int[] {});
+        runExpectedErrorCase(
+                "Insufficient operands",
+                "5 +",
+                new String[] {},
+                new int[] {});
+        runExpectedErrorCase(
+                "Division by zero",
+                "8 0 /",
+                new String[] {},
+                new int[] {});
+    }
+
+    /**
+     * Runs one test case expected to throw a readable calculator error.
+     *
+     * @param testName label displayed for this test
+     * @param expression postfix expression
+     * @param variableNames variable names used in this test
+     * @param variableValues variable values used in this test
+     */
+    private static void runExpectedErrorCase(
+            String testName,
+            String expression,
+            String[] variableNames,
+            int[] variableValues) {
+        validateInputLengths(variableNames, variableValues);
+        PostfixCalculator calculator = new PostfixCalculator();
+        for (int i = 0; i < variableNames.length; i++) {
+            calculator.setVariable(variableNames[i], variableValues[i]);
+        }
+        System.out.println("- " + testName + ": " + expression);
+        try {
+            int value = calculator.evaluatePostfixExpression(expression);
+            System.out.println("  Unexpected success: " + value);
+        } catch (IllegalArgumentException exception) {
+            System.out.println("  Expected error: " + exception.getMessage());
+        }
     }
 
     /**

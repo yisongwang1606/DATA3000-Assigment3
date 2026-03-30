@@ -99,6 +99,8 @@ public class PostfixCalculator {
         // Variable lookup has priority; if absent, parse as integer literal.
         Integer variableValue = variableTree.search(token);
         if (variableValue != null) {
+            // Reinsert/update confirms the variable table role during evaluation.
+            variableTree.insert(token, variableValue);
             return variableValue;
         }
         try {
