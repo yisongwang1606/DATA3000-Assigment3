@@ -1,18 +1,65 @@
-## Getting Started
+# DATA3000 Assignment 3
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This project implements a postfix calculator using:
 
-## Folder Structure
+- an array-based stack (`ADTStack`)
+- a binary search tree for variables (`BST`)
+- a main driver that runs the required sample expressions (`app.Main`)
 
-The workspace contains two folders by default, where:
+## Project Structure
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+```text
+src/
+  ADTStack/
+    ArrayStack.java
+    StackInterface.java
+  BST/
+    BinarySearchTree.java
+  calculator/
+    PostfixCalculator.java
+  app/
+    Main.java
+```
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Requirements
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- JDK 17+ (tested with JDK 21)
+- PowerShell (for commands below)
 
-## Dependency Management
+## Compile
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+From the project root:
+
+```powershell
+javac -d bin (Get-ChildItem -Recurse src -Filter *.java | ForEach-Object { $_.FullName })
+```
+
+## Run
+
+Normal run (shows `JOptionPane` welcome dialog):
+
+```powershell
+java -cp bin app.Main
+```
+
+Headless run (useful in terminal-only environments):
+
+```powershell
+java "-Djava.awt.headless=true" -cp bin app.Main
+```
+
+## What the Program Does
+
+1. Shows the assignment welcome message.
+2. Loads variable sets for 8 postfix test expressions.
+3. Evaluates each expression.
+4. Prints:
+   - postfix expression
+   - BST visualization
+   - result
+   - confirmation after deleting all variables
+
+## Notes
+
+- `bin/` contains compiled output and is ignored by Git.
+- Only source code and essential project files are tracked in this repository.
