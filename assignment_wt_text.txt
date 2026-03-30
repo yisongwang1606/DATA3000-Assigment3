@@ -1,0 +1,795 @@
+﻿Student Name:
+Weight:
+ 
+1
+5
+%
+Student ID:
+Marks:
+/
+1
+2
+0
+Assignment
+:
+ Stack-
+B
+ased Calculator for Postfix Notation with Binary Search Tree
+s
+Introduction
+The goal of this assignment is to implement a text-based calculator that can evaluate arithmetic expressions in postfix notation using a stack data structure and handle variables using a binary search tree (BST). You will design and implement an array-based stack, 
+and then 
+develop
+ 
+and implement 
+a provided 
+algorithm to evaluate postfix expressions, handle integer operands and basic arithmetic operations, integrate a binary search tree to store variables and their values, 
+v
+isually
+ 
+display the binary search tree, and handle deletion of all variables. The correctness of your implementation can be verified by following the provided 
+postfix expressions as 
+test cases in the sample runs.
+Instructions
+Before you start
+:
+Review 
+the 
+class 
+materials
+ for 
+M
+odule
+s
+ 3, 4 and 5.
+Complete the case exercises provided in the
+se 
+modules
+.
+This is a team assignment. Work in groups of three 
+students
+.
+This assignment should take about 
+six
+ hours and you’re expected to complete it outside of scheduled hours. 
+Follow the
+ 
+Program 
+Guidelines
+ 
+below to ensure your program meets the specifications.
+ 
+Ensure your program meets the requirements in the
+ 
+Restrictions
+ section.
+U
+se 
+the
+ 
+Tips and Tricks
+ sections
+ in 
+Modules
+ 3
+,
+ 
+4, 
+and 
+5
+ for guidance.
+Rigorously test your solution
+,
+ as outlined in the 
+Testing 
+section.
+In addition to writing the code, you are required to present your code to the instructor. Refer to the 
+Code Presentation
+ for further details.
+Refer to the 
+Marking Criteria
+ section for details on how you will be assessed
+.
+Individually, complete a Peer Assessment for your team. Review the 
+Peer Assessment
+ section below.
+Follow the 
+Submission Guidelines
+ section and s
+ubmit your completed assignment according to the 
+date and time stated by your instructor to 
+the 
+Assignment
+ submission area in Brightspace
+.
+Program
+ Guidelines
+Create a 
+Java 
+program that 
+fulfill
+s the following requirements:
+Implement the provided ADT stack interface using an array-based implementation. The stack interface should support operations such as 
+push
+,
+ pop
+,
+ peek
+,
+ 
+isEmpty
+,
+ etc.
+Implement a BST to store variables and their values. The binary search tree should support operations such as 
+insert
+,
+ search
+,
+ delete
+,
+ 
+deleteAll
+ 
+and 
+display
+.
+Implement a method named 
+evaluatePostfixExpression
+(
+String expression)
+ that takes a string representing a postfix arithmetic expression and returns 
+an integer
+ (
+the result of the evaluation
+)
+.
+The calculator should handle integer operands and 
+should 
+support the following operations: addition (+), subtraction (-), multiplication (*) and division (/). 
+Each operand and operator in the expression 
+should
+ be separated by spaces. For example, 
+the postfix 
+expression 
+2 3 + represents the 
+infix 
+expression 2 + 3.
+Evaluation algorithm:
+If an operand is encountered, push it onto the stack. If a variable is encountered, search for its value in the binary search tree and push the value onto the stack.
+If an operator is encountered, pop the top two operands from the stack. Perform the operation using the operator and operands. Push the result back onto the stack.
+If an operand or variable is encountered, store it in the binary search tree with its value using the insert operation.
+Repeat the
+se
+ steps until the expression is fully evaluated.
+The result
+ will be the top element on the stack.
+Restrictions
+Must organize your code solution into appropriate packages to promote a modular and structured approach.
+Your 
+Java 
+program should 
+meet 
+the following restrictions:
+Do not use any built-in Java utilities or libraries that directly evaluate postfix expressions.
+Implement the stack data structure, binary search tree, and postfix evaluation algorithm from scratch.
+Adhere to good coding practices, including
+:
+P
+roper
+ 
+code indentation 
+M
+eaningful
+ 
+variable names 
+A
+ppropriate
+ 
+inline and multiple 
+comments to explain the code
+’
+s 
+functionality
+Handle
+ any possible errors or exceptions that may occur during the execution of the program.
+Tips and Tricks
+Before starting the implementation, make sure you understand the concept of postfix notation, how the evaluation algorithm works and how binary search trees operate.
+Practice 
+by 
+solving a few postfix expressions manually to familiarize yourself with the process.
+U
+s
+e a 
+resizable/
+dynamic array to implement the stack data structure
+,
+ allowing 
+the 
+stack 
+to grow as needed.
+Implement
+ helper functions such as 
+push(
+)
+,
+ pop()
+,
+ peek()
+,
+ 
+isEmpty
+()
+,
+ 
+etc., to manage the stack operations.
+Use
+ 
+suitable 
+data structures and variables to store operands, 
+operators
+ and intermediate results during the evaluation process.
+Implement
+ the binary search tree operations (
+insert
+,
+ search
+,
+ delete
+,
+ 
+deleteAll
+,
+ 
+display
+) to manage variables and their values.
+Make
+ sure
+ the 
+evaluatePostfixExpression
+ method 
+can
+ handle variables
+.
+ If a token is an operand, check if it is a variable by searching for its key in the 
+BST
+. If the variable is found, push its corresponding value onto the stack. Otherwise, 
+handle 
+it as an integer operand and 
+then 
+push it onto the stack.
+Code Presentation
+In addition to developing your code, 
+you will have the opportunity to showcase your understanding of the assignment, the implementation details, and your problem-solving approach. Your presentation should be clear, concise, and structured to effectively communicate your 
+assignment’s
+ key aspects
+. 
+Consider the following:
+Problem Explanation
+: articulate the problem your code is addressing.
+Challenges
+: 
+d
+escribe any challenges or constraints your team encountered.
+High
+-
+Level Architecture
+: present the high-level architecture of your project. Discuss the major components and modules within your code. 
+Code Structure and Organization
+: 
+w
+alk through the structure and organization of your code. Highlight key classes, functions, and data structures
+.
+Peer Assessment
+Each team member must complete a peer assessment of their group members and submit 
+it
+ with the same title as the “Your 
+Name_
+AssignmentName
+/
+Project
+Name
+”. The purpose of this peer review is to offer constructive feedback to your peers. Please utilize the template provided below to assign ratings to each of your group members on a scale of 1 to 3, where:
+1 = Significant area for improvement
+2 = Acceptable but with some areas for improvement
+3 = Excellent contribution
+<Name 1>
+<Name 2>
+<Name 3>
+<Name 4>
+Motivation and engagement in assignment 
+/3
+/3
+/3
+/3
+Timely submission of deliverables 
+/3
+/3
+/3
+/3
+Effective communication and problem solving 
+/3
+/3
+/3
+/3
+Other comments for your peers
+BST 
+Implementation
+Tree Node
+:
+ 
+Since e
+ach node in the 
+BST 
+tree should contain two fields
+ (
+a key field to store the variable name
+ 
+and a value field to store the variable
+’
+s value
+), 
+a class represent
+ing
+ a node in the BST
+ tree
+ 
+should have fields for the key
+ and 
+value
+,
+ as well as 
+references to the left and right child nodes.
+Pseudocode:
+class Node:
+    String key
+    int value
+    Node 
+left
+    Node right
+BST
+ Operations
+Insertion
+: 
+Implement an insertion method that takes the variable name (key) and its value as input and inserts a new node with the given key-value pair into the BST
+ tree
+. Ensure that the tree maintains the 
+BST
+ property, i.e., all keys in the left subtree are less than the current node's key, and all keys in the right subtree are greater than the current node's key.
+Searching
+:
+ 
+Implement a search method that takes a key as input and returns the value associated with that key if found in the BST
+ tree
+. Perform a binary search starting from the root node and traversing left or right based on the key comparison.
+Pseudocode:
+function search(key):
+    current = root
+    while current is not null:
+        if key equals 
+current.key
+:
+            return 
+current.value
+        else if key < 
+current.key
+:
+            current = 
+current.left
+        else:
+            current = 
+current.right
+    // Handle key not found case
+Deletion
+:
+ 
+Implement a deletion method that takes a key as input and removes the node with the given key from the BST
+ tree
+. Handle different cases, such as deleting a node with no children, deleting a node with one 
+child
+ and deleting a node with two children. Ensure that the tree remains a valid binary search tree after deletion.
+Deletion of All Nodes
+:
+ 
+Implement a method named 
+deleteAll
+(
+)
+ that deletes all nodes from the 
+BST
+ tree.
+Displaying
+: 
+Implement a method named 
+displayTree
+(
+) 
+that displays the binary search tree in a hierarchical structure. This will help visualize the arrangement of nodes in the tree. You 
+may
+ use a recursive approach, 
+StringBuilder
+ and a loop to achieve this.
+Postfix Calculator Implementation
+Create a class named 
+PostfixCalculator
+ that includes the following components:
+An instance variable named 
+variableTree
+ of type 
+BinarySearchTree
+ to store variables and their values.
+An instance variable named stack of type 
+StackInterface
+<Integer>
+ to implement the stack for the postfix evaluation.
+Constructor
+:
+ 
+Implement
+ a constructor for the 
+PostfixCalculator
+ 
+class that initializes the 
+variableTree
+ and 
+stack
+.
+Method:
+ 
+evaluatePostfixExpression
+(
+String expression)
+:
+Implement a method named 
+evaluatePostfixExpression
+(String expression)
+ that takes a string representing a postfix arithmetic expression and returns the result of the evaluation as an integer. This method should implement the steps described earlier to evaluate the expression using a stack and handle variables using the binary search tree.
+Method:
+ 
+setVariable
+(
+String key, int value):
+Implement a method named 
+setVariable
+(String key, int value)
+ that sets a variable with its corresponding value in the binary search tree.
+Method:
+ 
+deleteAllVariables
+(
+):
+Implement a method named 
+deleteAllVariables
+()
+ that deletes all variables from the binary search tree.
+Additional Methods
+:
+ 
+Implement
+ any additional helper methods required for the proper functioning of the postfix calculator.
+Testing
+Test your 
+Java program 
+with various 
+eight
+ 
+postfix expressions
+ 
+list
+ed in the following sample runs
+, including expressions with variables. 
+Use the 
+setVariable
+ method to set the variables 
+and 
+return the postfix expressions 
+in the main method before 
+starting 
+to 
+evaluat
+e 
+th
+ose 
+expressions. 
+After evaluating each expression, delete all variables using the 
+deleteAll
+ method and 
+visually 
+display the binary search tree using the 
+displayTree
+ method.
+Sample Runs
+When your program begins, it should display a 
+JOptionPane
+ 
+displaying 
+the purpose of the program and 
+prompt asking you to press OK to initiate the program!
+After pressing 'OK,' your program should commence 
+displaying 
+the postfix expression, its binary tree, 
+result,
+ and 
+a message confirming the deletion of variables.
+ 
+Note 
+the test cases in 
+the following postfix expressions from 1 to 8
+ should be 
+sited
+ in your main method.
+//Postfix expression 1
+setVariable
+(
+"x", 5);
+setVariable
+(
+"y", 3);
+setVariable
+(
+"z", 4);
+//Postfix expression 
+2
+setVariable
+(
+"a", 2);
+setVariable
+(
+"b", 3);
+setVariable
+(
+"c", 4);
+//Postfix expression 
+3
+setVariable
+(
+"m", 8);
+setVariable
+(
+"n", 2);
+setVariable
+(
+"p", 3);
+//Postfix expression 
+4
+setVariable
+(
+"q", 7);
+setVariable
+(
+"r", 3);
+setVariable
+(
+"s", 2);
+ 
+//Postfix expression 
+5
+setVariable
+(
+"d", 1);
+setVariable
+(
+"e", 2);
+setVariable
+(
+"f", 3);
+//Postfix expression 
+6
+setVariable
+(
+"g", 2);
+setVariable
+(
+"h", 3);
+setVariable
+(
+"
+i
+", 4);
+setVariable
+(
+"j", 5);
+//Postfix expression 
+7
+setVariable
+(
+"k", 2);
+setVariable
+(
+"l", 3);
+setVariable
+(
+"m", 4);
+setVariable
+(
+"n", 5);
+//Postfix expression 
+8
+setVariable
+(
+"o", 9);
+setVariable
+(
+"p", 3);
+setVariable
+(
+"q", 5);
+setVariable
+(
+"r", 2);
+setVariable
+(
+"s", 7);
+Here
+ i
+s the step-by-step explanation of the BST visualization:
+The postfix expression being evaluated is g h 
+i
+ + * j /.
+The BST is constructed based on the variables used in the expression and their respective values.
+The root node of the BST is the node labeled j with a value of 5. It is represented as
+       
+||==>
+ j:5.
+The left child of the root node is the node labeled 
+i
+ with a value of 4. It is represented as 
+||==>
+ i:4.
+The left child of the 
+i
+ node 
+is the node labeled h with a value of 3. It is represented as 
+||==> 
+h:3.
+The left child of the h node is the node labeled g with a value of 2. It is represented as 
+||==>
+ g:2.
+Since there are no further left children, the right subtree of the g node is displayed as empty.
+The remaining part of the tree is displayed in a similar manner.
+The right child of the 
+i
+ node is the rightmost node labeled j with a value of 5. It is represented as 
+||==>
+ j:5.
+Since there are no furt
+her right children, the left subtree of the j node is displayed as empty.
+The resulting value of the postfix expression g h 
+i
+ + * j / is 2, which is displayed as Result: 2.
+Submission
+ Guidelines
+To ensure an organized submission process, please follow these instructions carefully:
+Generate a JAR file:
+ Begin by compiling your Java program and creating a JAR file. This JAR file should contain all the necessary compiled classes and resources essential for running your program effectively.
+Create a ZIP archive:
+ Assemble all the required files into a single ZIP archive. This archive should consist of the following items:
+JAR 
+f
+ile: 
+Place the generated JAR file, containing your Java program, inside the ZIP archive. Ensure that the JAR file includes all the dependencies and resources required for the program to execute correctly.
+Readme 
+f
+ile:
+ Include a small readme file within the ZIP archive. This file should provide clear instructions on how to run your program successfully.
+Organize the ZIP 
+a
+rchive:
+ Arrange the files inside the ZIP archive in a well-structured manner. Consider creating separate directories or folders for organization and clarity.
+Student Code of Conduct 
+Academic dishonesty 
+is considered to be
+ an extremely serious academic offense. Reference Procedure AC. 3.4.1 – Student Code of Conduct (available on 
+http://www.sait.ca
+).
+Be prepared to share an explanation of your solutions. Your instructor may select any team to provide an explanation to any question.
+Marking
+ Criteria
+Criteria
+Needs Improvement
+Good
+Excellent
+Marks
+Implementation of ADT Stack (Array-
+B
+ased)
+Incorrect or incomplete implementation of stack operations.
+ (5 marks)
+Correct implementation of essential stack operations (push, pop, peek, 
+isEmpty
+)
+.
+Adequate handling of stack size and resizing.
+ (10 marks)
+Precise implementation of stack operations with optimal efficiency
+.
+Effective management of stack size and resizing.
+ (15 marks)
+/15
+Implementation of BST
+Incorrect or incomplete implementation of BST operations.
+ (
+7
+ marks)
+Accurate implementation of BST operations (insert, search, delete, 
+deleteAll
+, display)
+.
+ 
+Proper maintenance of binary search tree property.
+ (1
+4
+ marks)
+Flawless implementation of BST operations with exceptional precision.
+Robust maintenance of binary search tree property.
+ (
+20
+ marks)
+/
+20
+Postfix Expression Evaluation Algorithm
+Inaccurate handling of operands, operators, and variables.
+ (10 marks)
+Proper handling of operands, operators, and variables in expressions.
+Accurate evaluation of postfix expressions using stack and BST.
+Adequate variable lookup and operand handling.
+ (20 marks)
+Flawless handling of operands, operators, and variables.
+ 
+Precise evaluation of postfix expressions using stack and BST.
+Optimal variable lookup and operand handling.
+ (30 marks)
+/30
+Code Quality and Style
+Disregard for coding practices, inconsistent indentation.
+ (
+7
+ marks)
+Adherence to coding practices: proper indentation, meaningful variable names, and comments
+.
+Well-structured code with clear use of helper methods.
+Handling of exceptions and errors.
+ (14 marks)
+Exemplary coding practices: consistent indentation, descriptive variable names, and detailed comments.
+Highly organized code with optimized use of helper methods.
+Exceptional error handling and robustness.
+ (20 marks)
+/
+20
+Test Cases and Sample Runs
+Incomplete or limited testing.
+ (5 marks)
+Thorough testing of various postfix expressions, including those with variables.
+Correct display of binary search tree in sample runs.
+Accurate evaluation results and variable deletion handling.
+ (10 marks)
+Comprehensive testing, including extensive coverage of edge cases.
+Precise display of binary search tree in sample runs.
+Perfectly accurate evaluation results and variable deletion handling.
+ (15 marks)
+/
+15
+Code Presentation
+Limited or unclear explanation of the problem, challenges, and project architecture. (6 marks)
+Provides a clear explanation of the problem, challenges, and project architecture. (12 marks)
+Presents a compelling and engaging overview, covering all aspects effectively. (
+17
+ marks)
+/
+17
+Total
+/
+1
+17
+Final Individual Marks
+Team Total (up to 117)
+x
+Peer Evaluation Multiplier (as a percentage)
+=
+Total
+x
+=
++
+Peer Evaluations Completed (3)
+=
+Final Individual Marks
+/120
